@@ -22,8 +22,8 @@ namespace DotnetosGPU.Hybridizer
             var results = new double[n];
 
             cuda.GetDeviceProperties(out var prop, 0);
-            HybRunner runner = HybRunner.Cuda("HelloWorld_CUDA.dll")
-                .SetDistrib(prop.multiProcessorCount * 16, 128);
+            HybRunner runner = HybRunner.Cuda("DotnetosGPU.Hybridizer_CUDA.dll")
+                .SetDistrib(prop.multiProcessorCount * 16, 256);
 
             // create a wrapper object to call GPU methods instead of C#
             dynamic wrapped = runner.Wrap(new Program());
