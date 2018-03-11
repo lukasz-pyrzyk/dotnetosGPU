@@ -57,5 +57,15 @@ namespace DotnetosGPU.Alea
 
             return n;
         }
+
+        private static void Kernel(float[] result, float[] x, float[] y)
+        {
+            var start = blockIdx.x * blockDim.x + threadIdx.x;
+            var stride = gridDim.x * blockDim.x;
+            for (var i = start; i < x.Length; i += stride)
+            {
+                result[i] = x[i] + y[i];
+            }
+        }
     }
 }
