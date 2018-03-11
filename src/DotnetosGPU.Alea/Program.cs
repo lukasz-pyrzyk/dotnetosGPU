@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Linq;
 using Alea;
 using Alea.CSharp;
-using Alea.Parallel;
 
 namespace DotnetosGPU.Alea
 {
@@ -22,6 +21,9 @@ namespace DotnetosGPU.Alea
             {
                 case "gpu":
                     action = RunGpu;
+                    break;
+                case "gpua":
+                    action = RunGpuWithAutomaticMemoryManagement;
                     break;
                 default:
                     Console.WriteLine($"Missing command. Expecting gpu | cpu");
@@ -44,7 +46,7 @@ namespace DotnetosGPU.Alea
             Console.WriteLine($"Done in {watch.Elapsed}");
         }
 
-        private static void RunGpu()
+        public static void RunGpu()
         {
             var n = GetData(out var x, out var y);
             var result = new float[n];
@@ -63,6 +65,18 @@ namespace DotnetosGPU.Alea
             Gpu.Free(xDevice);
             Gpu.Free(yDevice);
             Gpu.Free(resultDevice);
+        }
+
+
+        [GpuManaged]
+        public static void RunGpuWithAutomaticMemoryManagement()
+        {
+            var n = GetData(out var x, out var y);
+            var result = new float[n];
+
+            var gpu = Gpu.Default;
+            var lp = new LaunchParam(1, 256);
+            gpu.Launch(Kernel, lp, result, x, y);
         }
 
         private static int GetData(out float[] x, out float[] y)
