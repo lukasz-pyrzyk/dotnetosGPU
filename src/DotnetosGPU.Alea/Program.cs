@@ -46,7 +46,23 @@ namespace DotnetosGPU.Alea
 
         private static void RunGpu()
         {
-            throw new NotImplementedException();
+            var n = GetData(out var x, out var y);
+            var result = new float[n];
+            var gpu = Gpu.Default;
+            var xDevice = gpu.Allocate<float>(n);
+            var yDevice = gpu.Allocate<float>(n);
+            var resultDevice = gpu.Allocate<float>(n);
+
+            Gpu.Copy(x, xDevice);
+            Gpu.Copy(y, yDevice);
+
+            var lp = new LaunchParam(16, 256);
+            gpu.Launch(Kernel, lp, resultDevice, xDevice, yDevice);
+            Gpu.Copy(resultDevice, result);
+
+            Gpu.Free(xDevice);
+            Gpu.Free(yDevice);
+            Gpu.Free(resultDevice);
         }
 
         private static int GetData(out float[] x, out float[] y)
