@@ -9,16 +9,32 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetosGPU.Hybridizer", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetosGPU.Hybridizer_CUDA", "src\DotnetosGPU.Hybridizer_CUDA\DotnetosGPU.Hybridizer_CUDA.vcxproj", "{F6E43362-9B08-4136-A8BB-2A20F0C20558}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Alea", "Alea", "{CB1BF528-DE96-4DEB-BFD6-A8C507FC3B7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetosGPU.Alea", "src\DotnetosGPU.Alea\DotnetosGPU.Alea.csproj", "{D500A569-5CB8-4908-A59B-D63E6E406B92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893}.Debug|x64.ActiveCfg = Debug|x64
 		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893}.Debug|x64.Build.0 = Debug|x64
+		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893}.Release|Any CPU.ActiveCfg = Release|x64
 		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893}.Release|x64.ActiveCfg = Release|x64
 		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893}.Release|x64.Build.0 = Release|x64
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Debug|x64.Build.0 = Debug|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Release|x64.ActiveCfg = Release|Any CPU
+		{D500A569-5CB8-4908-A59B-D63E6E406B92}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{58413032-E2E2-4ED4-BDA4-8BE99FAF8893} = {016118A4-B041-4AF1-B659-421B773FBB4C}
 		{F6E43362-9B08-4136-A8BB-2A20F0C20558} = {016118A4-B041-4AF1-B659-421B773FBB4C}
+		{D500A569-5CB8-4908-A59B-D63E6E406B92} = {CB1BF528-DE96-4DEB-BFD6-A8C507FC3B7E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF781AA4-87A4-45FC-AB7F-1B34275719E1}
