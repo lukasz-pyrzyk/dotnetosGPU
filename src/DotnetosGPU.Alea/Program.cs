@@ -75,7 +75,7 @@ namespace DotnetosGPU.Alea
             var result = new float[n];
 
             var gpu = Gpu.Default;
-            var lp = new LaunchParam(1, 256);
+            var lp = new LaunchParam(16, 256);
             gpu.Launch(Kernel, lp, result, x, y);
         }
 
